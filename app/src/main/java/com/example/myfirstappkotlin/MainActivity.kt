@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 import com.example.myfirstappkotlin.databinding.ActivityMainBinding
+import com.example.myfirstappkotlin.model.Product
+import com.example.myfirstappkotlin.ui.adapters.ListProductsAdapter
 
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +25,10 @@ class MainActivity : AppCompatActivity() {
         val title_product = findViewById<TextView>(R.id.title_product)
         val description_product = findViewById<TextView>(R.id.description_product)
         val value_product = findViewById<TextView>(R.id.value_product)
+
+        val recycledView = findViewById<RecyclerView>(R.id.recyclerView)
+       //recycledView.adapter = ListProductsAdapter()
+
 
 
         binding.button1.setOnClickListener{
