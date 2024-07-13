@@ -1,19 +1,18 @@
 package com.example.myfirstappkotlin
 
 import android.os.Bundle
-import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myfirstappkotlin.databinding.ActivityMainBinding
+import com.example.myfirstappkotlin.model.Pessoa
 import com.example.myfirstappkotlin.model.Product
+import com.example.myfirstappkotlin.ui.adapters.ListPessoasAdapter
 import com.example.myfirstappkotlin.ui.adapters.ListProductsAdapter
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    var clear: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,40 +21,36 @@ class MainActivity : AppCompatActivity() {
         val viewMain = binding.root
         setContentView(viewMain)
 
-        val title_product = findViewById<TextView>(R.id.title_product)
-        val description_product = findViewById<TextView>(R.id.description_product)
-        val value_product = findViewById<TextView>(R.id.value_product)
+        //Conecta com o Adapter de Produtos
+        val recycledViewProdutos = findViewById<RecyclerView>(R.id.recyclerViewProdutos)
+        val recyclerViewPessoas = findViewById<RecyclerView>(R.id.recyclerViewPessoa)
 
-        val recycledView = findViewById<RecyclerView>(R.id.recyclerView)
-       //recycledView.adapter = ListProductsAdapter()
+        recycledViewProdutos.adapter = ListProductsAdapter(
+            this, listOf(
+                Product(
+                    title = "Cesta de Bananas",
+                    description = "Banana NANICA da Terra",
+                    valor = 3.50
+                ),
+                Product(
+                    title = "Cesta de Goiabas",
+                    description = "Goiaba deliciosa",
+                    valor = 10.00
+                ),
+                Product(
+                    title = "Melancia",
+                    description = "Olha a Mais doce da cidade",
+                    valor = 7.50
+                ),
+            )
+        )
 
+        recyclerViewPessoas.adapter = ListPessoasAdapter(this,
+            listOf(
+                Pessoa("CAINA_TESTE1","caina.sanches@teste.123","1235468798","30 Anos"),
+            Pessoa("JULIA_TESTE2","ste.123","54","54 Anos"),
+        Pessoa("CYNTIA_TESTE1","cinthia.3","558","15 Anos")),
 
-
-        binding.button1.setOnClickListener{
-
-            if (!clear){
-                Toast.makeText(this,"Teste Botão NOVO",Toast.LENGTH_LONG).show()
-                binding.button1.text = "CLEAR"
-                binding.button1.setBackgroundColor(getColor(R.color.white))
-                binding.button1.setTextColor(getColor(R.color.black))
-
-                title_product.text = "Cesta de Frutas"
-                description_product.text = "Escolha uma Fruta"
-                value_product.text = "R$ 1.500"
-
-                clear = true
-            }
-            else{
-                binding.button1.text = "INICIAR"
-                binding.button1.setBackgroundColor(getColor(R.color.black))
-                binding.button1.setTextColor(getColor(R.color.white))
-
-                title_product.text = "Informe um Titulo"
-                description_product.text = "Informe uma Descricao"
-                value_product.text = "Informe um valor"
-
-                clear = false
-            }
-        }
+        )
     }
 }
