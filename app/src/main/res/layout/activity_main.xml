@@ -16,40 +16,30 @@
         tools:listitem="@layout/produto_item"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/teal_200"
+        android:foregroundTint="@color/purple_700"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewPessoa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewProdutos" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewPessoa"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="50dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toTopOf="@+id/button1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recyclerViewProdutos"
         tools:listitem="@layout/pessoa_item" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="341dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerViewPessoa" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="46dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button1"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerViewPessoa"
-        app:srcCompat="@android:drawable/ic_media_play"
-        android:contentDescription="TODO" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

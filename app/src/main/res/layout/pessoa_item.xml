@@ -9,7 +9,9 @@
         android:id="@+id/cardViewPessoa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="2dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:cardBackgroundColor="@color/cardview_shadow_end_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,61 +25,64 @@
 
             <TextView
                 android:id="@+id/name_text"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:ems="10"
                 android:textAlignment="textStart"
                 android:textColor="@color/black"
                 android:textSize="15sp"
-                tools:text="Caina"
                 app:layout_constraintBottom_toTopOf="@+id/emailAddress_editText"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Caina" />
 
-        <TextView
-            android:id="@+id/emailAddress_editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            tools:text="caina.sanches@teste.1234"
-            app:layout_constraintBottom_toTopOf="@+id/phone_editText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name_text" />
+            <TextView
+                android:id="@+id/emailAddress_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@+id/phone_editText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.082"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/name_text"
+                tools:text="caina.sanches@teste.1234"/>
 
-        <TextView
-            android:id="@+id/phone_editText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:ems="10"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            tools:text="12554114"
-            app:layout_constraintBottom_toTopOf="@+id/idade_number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/emailAddress_editText" />
+            <TextView
+                android:id="@+id/phone_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@+id/idade_number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/emailAddress_editText"
+                tools:text="12554114" />
 
-        <TextView
-            android:id="@+id/idade_number"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:ems="10"
-            android:textAlignment="textStart"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            tools:text="29 anos"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf= "parent"/>
+            <TextView
+                android:id="@+id/idade_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ems="10"
+                android:textAlignment="textStart"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.081"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/phone_editText"
+                tools:text="29 anos" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

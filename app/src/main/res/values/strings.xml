@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Primeiro APP Kotlin Alura</string>
     <string name="title_activity_form_products">FormProducts</string>
+    <string name="title_activity_form_cadastro_pessoa">form_cadastro_pessoa</string>
 </resources>
