@@ -19,12 +19,12 @@ class ListPessoasAdapter(
             val nomePessoa = itemView.findViewById<TextView>(R.id.name_text)
             val emailPessoa = itemView.findViewById<TextView>(R.id.emailAddress_editText)
             val telefonePessoa = itemView.findViewById<TextView>(R.id.phone_editText)
-            val idadePessoa = itemView.findViewById<TextView>(R.id.idade_number)
+            val descricao = itemView.findViewById<TextView>(R.id.descricao)
 
             nomePessoa.text = pessoa.nome
             emailPessoa.text = pessoa.email
             telefonePessoa.text = pessoa.telefone
-            idadePessoa.text = pessoa.idade
+            descricao.text = pessoa.descricao
         }
     }
 

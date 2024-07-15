@@ -1,13 +1,16 @@
 package com.example.myfirstappkotlin
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myfirstappkotlin.databinding.ActivityMainBinding
 import com.example.myfirstappkotlin.model.Pessoa
 import com.example.myfirstappkotlin.model.Product
+import com.example.myfirstappkotlin.ui.FormularioCadastroPessoaActivity
 import com.example.myfirstappkotlin.ui.adapters.ListPessoasAdapter
 import com.example.myfirstappkotlin.ui.adapters.ListProductsAdapter
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class MainActivity : AppCompatActivity() {
@@ -45,12 +48,18 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-        recyclerViewPessoas.adapter = ListPessoasAdapter(this,
+        recyclerViewPessoas.adapter = ListPessoasAdapter(
+            this,
             listOf(
-                Pessoa("CAINA_TESTE1","caina.sanches@teste.123","1235468798","30 Anos"),
-            Pessoa("JULIA_TESTE2","ste.123","54","54 Anos"),
-        Pessoa("CYNTIA_TESTE1","cinthia.3","558","15 Anos")),
-
+                Pessoa("CAINA_TESTE1", "caina.sanches@teste.123", "1235468798", "30 Anos"),
+                Pessoa("JULIA_TESTE2", "ste.123", "54", "54 Anos"),
+                Pessoa("CYNTIA_TESTE1", "cinthia.3", "558", "15 Anos")
+            )
         )
+
+        val fabAddPessoa = findViewById<FloatingActionButton>(R.id.fab_add_pessoa)
+        fabAddPessoa.setOnClickListener {
+            startActivity(Intent(this, FormularioCadastroPessoaActivity::class.java))
+        }
     }
 }
