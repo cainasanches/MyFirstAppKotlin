@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import com.example.myfirstappkotlin.R
+import com.example.myfirstappkotlin.dao.PessoaDAO
 import com.example.myfirstappkotlin.model.Pessoa
 
 class FormularioCadastroPessoaActivity : AppCompatActivity() {
@@ -24,6 +25,12 @@ class FormularioCadastroPessoaActivity : AppCompatActivity() {
             val nova_pessoa = Pessoa(nome = nome, email = email, telefone = telefone, descricao = descricao)
 
             Log.i("FormularioCadastroPessoa", "$nova_pessoa")
+
+            PessoaDAO().adicionaPessoa(nova_pessoa)
+
+            Log.i("FormularioCadastroPessoa", "onCreate: Pessoa cadastrada com sucesso")
+
+            finish()
         }
     }
 }
