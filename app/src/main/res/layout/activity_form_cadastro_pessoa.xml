@@ -36,7 +36,7 @@ tools:context=".ui.FormularioCadastroPessoaActivity">
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/editTextNome"
+            android:id="@+id/activity_form_cadastro_pessoa_nome"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="4dp"
@@ -50,7 +50,7 @@ tools:context=".ui.FormularioCadastroPessoaActivity">
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editTextEmail"
+            android:id="@+id/activity_form_cadastro_pessoa_email"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="5dp"
@@ -59,10 +59,10 @@ tools:context=".ui.FormularioCadastroPessoaActivity">
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNome" />
+            app:layout_constraintTop_toBottomOf="@+id/activity_form_cadastro_pessoa_nome" />
 
         <EditText
-            android:id="@+id/editTextPhone"
+            android:id="@+id/activity_form_cadastro_pessoa_telefone"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="5dp"
@@ -71,10 +71,10 @@ tools:context=".ui.FormularioCadastroPessoaActivity">
             android:inputType="phone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/activity_form_cadastro_pessoa_email" />
 
         <EditText
-            android:id="@+id/editTextDescricao"
+            android:id="@+id/activity_form_cadastro_pessoa_descricao"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_marginStart="2dp"
@@ -87,11 +87,11 @@ tools:context=".ui.FormularioCadastroPessoaActivity">
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
+            app:layout_constraintTop_toBottomOf="@+id/activity_form_cadastro_pessoa_telefone"
             app:layout_constraintVertical_bias="0.006" />
 
         <Button
-            android:id="@+id/button_salvar"
+            android:id="@+id/activity_form_cadastro_pessoa_nome_btnSalvar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
@@ -101,7 +101,7 @@ tools:context=".ui.FormularioCadastroPessoaActivity">
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintVertical_bias="1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextDescricao" />
+            app:layout_constraintTop_toBottomOf="@+id/activity_form_cadastro_pessoa_descricao" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

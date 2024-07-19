@@ -6,18 +6,21 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myfirstappkotlin.dao.PessoaDAO
-
 import com.example.myfirstappkotlin.ui.FormularioCadastroPessoaActivity
 import com.example.myfirstappkotlin.ui.adapters.ListPessoasAdapter
-import com.example.myfirstappkotlin.ui.adapters.ListProductsAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class ListaPessoasActivity : AppCompatActivity(R.layout.activity_lista_pessoas) {
+
+    private val dao = PessoaDAO()
+    private val adapter = ListPessoasAdapter(context = this, pessoas =  dao.buscaTodasPessoas())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         //Festa de boas-vindas: Criacao da Activity, recomenda Iniciar variaveis, objetos e listener no onCreate
         super.onCreate(savedInstanceState)
+        configuraRecyclerView()
+        configfab()
 
         Log.i("Ciclo.MainActivity", "onCreate: Festa de boas-vindas")
     }
@@ -34,28 +37,31 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         //Aplausos : Activity totalmente interativa para o usuário
         // Activity responde aos toques, clicks e outros eventos do usuário
         super.onResume()
-
-        val dao = PessoaDAO()
+        adapter.atualizaDadosAdapter(dao.buscaTodasPessoas())
         //***Usar binding caso nao existe um adapter para conectar com a view
 
         //var binding: ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         // val viewMain = binding.root
         //setContentView(viewMain)
 
-        //Conecta com o Adapter de Produtos
-        val recyclerViewPessoas = findViewById<RecyclerView>(R.id.recyclerViewPessoa)
+        Log.i("Ciclo.MainActivity", "onResume: Aplausos - Activity totalmente interativa ")
+    }
 
-        //Atualiza recyclerView com os dados do adapter
-        recyclerViewPessoas.adapter = ListPessoasAdapter(
-            this, dao.buscaTodasPessoas()
-        )
-
+    private fun configfab() {
         val fabAddPessoa = findViewById<FloatingActionButton>(R.id.fab_add_pessoa)
         fabAddPessoa.setOnClickListener {
-            startActivity(Intent(this, FormularioCadastroPessoaActivity::class.java))
+            iniciaFormCadastroPessoaActivity()
         }
+    }
 
-        Log.i("Ciclo.MainActivity", "onResume: Aplausos - Activity totalmente interativa ")
+    private fun iniciaFormCadastroPessoaActivity() {
+        startActivity(Intent(this, FormularioCadastroPessoaActivity::class.java))
+    }
+
+    private fun configuraRecyclerView() {
+        val recyclerViewPessoas = findViewById<RecyclerView>(R.id.recyclerViewPessoa)
+        //Atualiza recyclerView com os dados do adapter
+        recyclerViewPessoas.adapter = adapter
     }
 
     override fun onPause() {

@@ -17,25 +17,33 @@ class FormularioCadastroPessoaActivity : AppCompatActivity() {
         Log.i("CicloDeVida.MainActivity", "onCreate: Festa de boas-vindas")
 
         setContentView(R.layout.activity_form_cadastro_pessoa)
+        configBtnSalvar()
 
-        val btn_salvar =  findViewById<Button>(R.id.button_salvar)
+        Log.i("FormularioCadastroPessoa", "onCreate: Pessoa cadastrada com sucesso")
+    }
+
+    private fun configBtnSalvar() {
+
+        val btn_salvar =  findViewById<Button>(R.id.activity_form_cadastro_pessoa_nome_btnSalvar)
+        val dao = PessoaDAO()
 
         btn_salvar.setOnClickListener {
-            val nome = findViewById<EditText>(R.id.editTextNome).text.toString()
-            val email = findViewById<EditText>(R.id.editTextEmail).text.toString()
-            val telefone = findViewById<EditText>(R.id.editTextPhone).text.toString()
-            val descricao = findViewById<EditText>(R.id.editTextDescricao).text.toString()
-
-            val nova_pessoa = Pessoa(nome = nome, email = email, telefone = telefone, descricao = descricao)
-
-            Log.i("FormularioCadastroPessoa", "$nova_pessoa")
-
-            PessoaDAO().adicionaPessoa(nova_pessoa)
-
-            Log.i("FormularioCadastroPessoa", "onCreate: Pessoa cadastrada com sucesso")
-
+           val novaPessoa =  criarNovaPessoa()
+            dao.adicionaPessoa(novaPessoa)
             finish()
         }
+    }
+
+    private fun criarNovaPessoa(): Pessoa {
+
+        val nome = findViewById<EditText>(R.id.activity_form_cadastro_pessoa_nome).text.toString()
+        val email = findViewById<EditText>(R.id.activity_form_cadastro_pessoa_email).text.toString()
+        val telefone = findViewById<EditText>(R.id.activity_form_cadastro_pessoa_telefone).text.toString()
+        val descricao = findViewById<EditText>(R.id.activity_form_cadastro_pessoa_descricao).text.toString()
+
+        Log.i("FormularioCadastroPessoa", "Pessoa Criada")
+
+        return Pessoa(nome = nome, email = email, telefone = telefone, descricao = descricao)
     }
 
     override fun onStart() {

@@ -11,15 +11,16 @@ import com.example.myfirstappkotlin.model.Pessoa
 
 class ListPessoasAdapter(
     val context: Context,
-    private val pessoas: List<Pessoa>
+    pessoas: List<Pessoa>
 ) : RecyclerView.Adapter<ListPessoasAdapter.ViewHolder>() {
 
+    private val dataSetPessoas = pessoas.toMutableList()
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bindView(pessoa: Pessoa) {
-            val nomePessoa = itemView.findViewById<TextView>(R.id.name_text)
-            val emailPessoa = itemView.findViewById<TextView>(R.id.emailAddress_editText)
-            val telefonePessoa = itemView.findViewById<TextView>(R.id.phone_editText)
-            val descricao = itemView.findViewById<TextView>(R.id.descricao)
+            val nomePessoa = itemView.findViewById<TextView>(R.id.pessoa_item_nome)
+            val emailPessoa = itemView.findViewById<TextView>(R.id.pessoa_item_email)
+            val telefonePessoa = itemView.findViewById<TextView>(R.id.pessoa_item_telefone)
+            val descricao = itemView.findViewById<TextView>(R.id.pessoa_item_descricao)
 
             nomePessoa.text = pessoa.nome
             emailPessoa.text = pessoa.email
@@ -34,12 +35,19 @@ class ListPessoasAdapter(
         return ViewHolder(view)
     }
 
-    override fun getItemCount(): Int = pessoas.size
+    override fun getItemCount(): Int = dataSetPessoas.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // Realizamos o bind dos Itens da View
-        val pessoa = pessoas[position]
+        val pessoa = dataSetPessoas[position]
         holder.bindView(pessoa)
     }
 
+    fun atualizaDadosAdapter(pessoas: List<Pessoa>) {
+        this.dataSetPessoas.clear()
+        this.dataSetPessoas.addAll(pessoas)
+
+        //Notifica que o dataSetPessoas foi de fato alterada
+        notifyDataSetChanged()
+    }
 }

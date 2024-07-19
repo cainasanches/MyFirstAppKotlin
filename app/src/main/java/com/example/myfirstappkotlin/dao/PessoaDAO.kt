@@ -6,8 +6,7 @@ class PessoaDAO {
 
     fun adicionaPessoa(pessoaDAO: Pessoa){ pessoasList.add(pessoaDAO) }
 
-    fun buscaTodasPessoas() : MutableList<Pessoa> { return pessoasList
-    }
+    fun buscaTodasPessoas() : MutableList<Pessoa> { return pessoasList }
 
     companion object {
         val pessoasList = mutableListOf<Pessoa>()
